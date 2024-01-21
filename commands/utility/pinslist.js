@@ -16,18 +16,13 @@ module.exports = {
             .setRequired(true)),
 
     async execute(interaction) {
-        // await interaction.reply('pong');
         let oldChannel = await interaction.options.getChannel('oldchannel');
         let newChannel = await interaction.options.getChannel('newchannel');
         newChannel = await newChannel.fetch();
         oldChannel = await oldChannel.fetch();
         const pinnedMessages = await oldChannel.messages.fetchPinned();
-        // console.log(pinnedMessages);
-        // interaction.reply({ content: "working", ephemeral: true });
         for (const msg of Array.from(pinnedMessages.values())) {
-            // console.log(msg);
             var name = ellipsis(msg.content, 90);
-            // console.log(`Creating msg with name: ${msg.content}`)
             const thread = await newChannel.threads.create({
                 name: name,
                 reason: 'Imported from old pins',
@@ -40,8 +35,6 @@ Full Message content below:
 ${msg.content}`
 
             });
-            // console.log(thread);
-            // thread.send(`Original Post: ${msg.url}`);
         }
         
     }
