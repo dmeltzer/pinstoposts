@@ -1,0 +1,16 @@
+{
+  "name": "pinstoposts",
+  "version": "0.0.1",
+  "description": "Discord pins to posts",
+  "main": "index.js",
+  "author": "me",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "text-ellipsis": "^1.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0"
+  }
+}
